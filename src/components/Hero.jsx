@@ -41,10 +41,10 @@ const Hero = () => {
         )}
       </Swiper>
       <div className="absolute w-full flex justify-between items-center z-20 group/edit invisible group-hover/item:visible">
-        <button className="arrow-left arrow rounded-md opacity-0 group-hover/item:opacity-100 ease-in-out duration-500 bg-slate-900 p-3  hover:text-gray-900  hover:bg-white">
+        <button className="arrow-left arrow rounded-md opacity-0 group-hover/item:opacity-100 ease-in-out duration-500 bg-[#15191e] p-3  hover:text-gray-900  hover:bg-white">
           <FaArrowLeft size={28} />
         </button>
-        <button className="arrow-right arrow rounded-md  opacity-0 group-hover/item:opacity-100 ease-in-out duration-500 bg-slate-900 p-3  hover:text-gray-900  hover:bg-white">
+        <button className="arrow-right arrow rounded-md  opacity-0 group-hover/item:opacity-100 ease-in-out duration-500 bg-[#15191e] p-3  hover:text-gray-900  hover:bg-white">
           <FaArrowRight size={28} />
         </button>
       </div>

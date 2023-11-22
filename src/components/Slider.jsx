@@ -22,13 +22,13 @@ const MovieHeroDetails = ({ movie }) => {
           {movie.title || movie.name}
         </h1>
         <div className="flex items-center justify-start mb-4">
-          <button className="relative group text-base border overflow-hidden w-[70px]  py-2 px-4 mr-2 rounded-md bg-white text-gray-900  duration-1000">
+          <button className="relative group text-base border overflow-hidden w-[70px]  py-2 px-4 mr-2 rounded-md bg-white text-[#15191e]  duration-1000">
             <span className="visible group-hover:invisible ease-in ">Play</span>
             <span className="absolute m-auto  right-0 -left-10 group-hover:left-6 ease-in-out duration-500">
               <FaPlay size={22} />
             </span>
           </button>
-          <button className="text-base border py-2 px-4 rounded-md   hover:bg-white hover:text-gray-900 duration-500">
+          <button className="text-base border py-2 px-4 rounded-md   hover:bg-white hover:text-[#15191e] duration-500">
             Watch Later
           </button>
         </div>

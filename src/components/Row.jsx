@@ -26,7 +26,7 @@ const Row = ({ rowID, title, fetchURL }) => {
       <div className="relative flex items-center group">
         <button
           onClick={slideLeft}
-          className="bg-gray-900  left-0 rounded-md absolute p-3  cursor-pointer z-30 hidden group-hover:block group-hover/item:opacity-100 ease-in-out duration-500  hover:text-gray-900  hover:bg-white">
+          className="bg-[#15191e]  left-0 rounded-md absolute p-3  cursor-pointer z-30 hidden group-hover:block group-hover/item:opacity-100 ease-in-out duration-500  hover:text-[#15191e]  hover:bg-white">
           <FaArrowLeft size={18} />
         </button>
         <div
@@ -38,7 +38,7 @@ const Row = ({ rowID, title, fetchURL }) => {
         </div>
         <button
           onClick={slideRight}
-          className="bg-gray-900  right-0 rounded-md absolute p-3  cursor-pointer z-30 hidden group-hover:block group-hover/item:opacity-100 ease-in-out duration-500  hover:text-gray-900  hover:bg-white">
+          className="bg-[#15191e]  right-0 rounded-md absolute p-3  cursor-pointer z-30 hidden group-hover:block group-hover/item:opacity-100 ease-in-out duration-500  hover:text-[#15191e]  hover:bg-white">
           <FaArrowRight size={18} />
         </button>
       </div>

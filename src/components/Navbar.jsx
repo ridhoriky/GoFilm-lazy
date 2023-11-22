@@ -22,7 +22,7 @@ const Navbar = () => {
         <div className="dropdown">
           <label
             tabIndex={0}
-            className="btn btn-ghost lg:hidden  hover:text-gray-900 hover:bg-white mr-5">
+            className="btn btn-ghost lg:hidden  hover:text-[#15191e] hover:bg-white mr-5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -44,7 +44,7 @@ const Navbar = () => {
               <li key={index}>
                 <Link
                   to={path}
-                  className="  hover:text-gray-900 ease-in-out duration-500">
+                  className="  hover:text-[#15191e] ease-in-out duration-500">
                   {name}
                 </Link>
               </li>
@@ -53,7 +53,7 @@ const Navbar = () => {
         </div>
         <Link
           to="/"
-          className="btn btn-ghost normal-case font-bold  text-2xl   hover:bg-white hover:text-gray-900 ease-in-out duration-500">
+          className="btn btn-ghost normal-case font-bold  text-2xl   hover:bg-white hover:text-[#15191e] ease-in-out duration-500">
           Go<span className="text-red-500 "> Film</span>
         </Link>
       </div>
@@ -63,7 +63,7 @@ const Navbar = () => {
             <li key={index}>
               <Link
                 to={path}
-                className="  hover:text-gray-900  hover:bg-white ease-in-out duration-500">
+                className="  hover:text-[#15191e]  hover:bg-white ease-in-out duration-500">
                 {name}
               </Link>
             </li>
@@ -97,12 +97,12 @@ const Navbar = () => {
         <div className="navbar-end flex gap-4 ">
           <Link
             to="/signup"
-            className="menu menu-horizontal px-3 outline outline-2 rounded-md outline-[#15191e] font-semibold cursor-pointer hover:text-gray-900  hover:bg-white hover:outline-white ease-in-out duration-500 ">
+            className="menu menu-horizontal px-3 outline outline-2 rounded-md outline-[#15191e] font-semibold cursor-pointer hover:text-[#15191e]  hover:bg-white hover:outline-white ease-in-out duration-500 ">
             Sign Up
           </Link>
           <Link
             to="/login"
-            className="menu menu-horizontal px-3 outline outline-2 rounded-md  font-semibold cursor-pointer  hover:text-gray-900  hover:bg-white hover:outline-white  ease-in-out duration-500">
+            className="menu menu-horizontal px-3 outline outline-2 rounded-md  font-semibold cursor-pointer  hover:text-[#15191e]  hover:bg-white hover:outline-white  ease-in-out duration-500">
             Sign In
           </Link>
         </div>
