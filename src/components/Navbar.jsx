@@ -54,7 +54,7 @@ const Navbar = () => {
         <Link
           to="/"
           className="btn btn-ghost normal-case font-bold  text-2xl bg-gray-900  hover:bg-white hover:text-gray-900 ease-in-out duration-500">
-          Go<span className="text-red-500 "> Flix</span>
+          Go<span className="text-red-500 "> Film</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
