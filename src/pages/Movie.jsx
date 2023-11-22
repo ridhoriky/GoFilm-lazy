@@ -21,7 +21,7 @@ const Movie = () => {
 
   return (
     <>
-      <h2 className="text-center text-white font-bold mt-20 md:text-3xl md:px-[10%] p-4">
+      <h2 className="text-center text-white font-bold mt-4 md:text-3xl md:px-[10%] p-4">
         Movie
       </h2>
       <div className=" md:px-[10%] w-full flex flex-wrap items-center justify-center group ">
