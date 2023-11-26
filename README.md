@@ -14,7 +14,7 @@ A simple fictional web app created for my personal project portfolio.
 More to come!
 
 ## How to run
-1. Install all dependencies using pnpm install
-2. Run it pnpm dev
+1. Install all dependencies using <div style="background-color: #f0f0f0;">npm install</div>
+2. Run it npm run <div style="background-color: #f0f0f0;">npm run dev</div>
    
 *Note: If you prefer to use a different package manager such as yarn, you can simply replace pnpm with your package manager of choice*
