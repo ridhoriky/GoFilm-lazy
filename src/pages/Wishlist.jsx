@@ -36,7 +36,7 @@ const Wishlist = () => {
 
   return (
     <>
-      <h2 className="text-white font-bold mt-4 text-center md:text-3xl md:px-[10%] p-4">
+      <h2 className="text-white font-bold mt-20 text-center md:text-3xl md:px-[10%] p-4">
         Wishlist
       </h2>
       <div className=" md:px-[10%] w-full flex flex-wrap items-center justify-start group ">

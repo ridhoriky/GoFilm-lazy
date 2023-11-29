@@ -5,7 +5,7 @@ import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import MovieCardBig from './MovieCardBig';
 import MovieCardSmall from './MovieCardSmall';
 
-const MovieCard = ({ item, rowID }) => {
+const MovieCard = ({ item, rowID, type }) => {
   const [like, setLike] = useState(false);
   const [saved, setSaved] = useState(false);
   const { user } = UserAuth();
@@ -20,7 +20,7 @@ const MovieCard = ({ item, rowID }) => {
         savedShows: arrayUnion({
           id: item.id,
           title: item.title || item.name,
-          img: item.poster_path,
+          img: item.poster_path || item.profile_path,
         }),
       });
     } else {
@@ -35,6 +35,7 @@ const MovieCard = ({ item, rowID }) => {
           rowID={rowID}
           saveShow={saveShow}
           like={like}
+          type={type}
         />
       ) : (
         <MovieCardSmall
@@ -42,6 +43,7 @@ const MovieCard = ({ item, rowID }) => {
           rowID={rowID}
           saveShow={saveShow}
           like={like}
+          type={type}
         />
       )}
     </>

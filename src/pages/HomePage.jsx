@@ -13,6 +13,7 @@ const HomePage = () => {
           rowID={list.id}
           title={list.name}
           fetchURL={list.fetchURL}
+          type={list.type}
         />
       ))}
     </div>

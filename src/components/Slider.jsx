@@ -1,8 +1,34 @@
-import React from 'react';
-import { FaPlay } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { db } from '../sevices/Firebase';
+import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
+import { UserAuth } from '../context/AuthContext';
+import { FaHeart, FaRegEye, FaRegHeart } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 const IMAGE_BASE_URL = import.meta.env.VITE_BASE_IMG_URL;
 
-const MovieHeroDetails = ({ movie }) => {
+const MovieHeroDetails = ({ movie, type }) => {
+  const [like, setLike] = useState(false);
+  const [saved, setSaved] = useState(false);
+
+  const { user } = UserAuth();
+  const movieID = user?.email ? doc(db, 'users', user.email) : null;
+
+  const saveShow = async () => {
+    if (user?.email) {
+      setLike(!like);
+      setSaved(true);
+      await updateDoc(movieID, {
+        savedShows: arrayUnion({
+          id: item.id,
+          title: item.title || item.name,
+          img: item.poster_path || item.profile_path,
+        }),
+      });
+    } else {
+      alert('Please log in to save a movie');
+    }
+  };
+
   const truncateString = (str, num) => {
     if (str.length > num) {
       return str.slice(0, num) + '...';
@@ -22,15 +48,28 @@ const MovieHeroDetails = ({ movie }) => {
           {movie.title || movie.name}
         </h1>
         <div className="flex items-center justify-start mb-4">
-          <button className="relative group text-base border overflow-hidden w-[70px]  py-2 px-4 mr-2 rounded-md bg-white text-[#15191e]  duration-1000">
-            <span className="visible group-hover:invisible ease-in ">Play</span>
-            <span className="absolute m-auto  right-0 -left-10 group-hover:left-6 ease-in-out duration-500">
-              <FaPlay size={22} />
+          <button className="relative group text-base border overflow-hidden w-[70px] h-11 py-2 px-4 mr-2 rounded-md bg-white text-[#15191e] ">
+            <span className="absolute left-4 top-[9px] group-hover:left-20 duration-500">
+              View
             </span>
+            <Link
+              to={`/details/${type}/${movie.id}`}
+              className="absolute mx-auto top-[6px]  right-0 -left-10 group-hover:left-5 ease-in-out duration-500">
+              <FaRegEye size={28} />
+            </Link>
           </button>
-          <button className="text-base border py-2 px-4 rounded-md   hover:bg-white hover:text-[#15191e] duration-500">
-            Watch Later
-          </button>
+          <p onClick={saveShow} className=" z-50 cursor-pointer ">
+            {like ? (
+              <span className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
+                <FaHeart size={24} title="Delete From Wishlist" /> Delete From
+                Wishlist
+              </span>
+            ) : (
+              <span className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
+                <FaRegHeart size={24} title="Add to Wishlist" /> Add to Wishlist
+              </span>
+            )}
+          </p>
         </div>
         <p className="text-gray-400 text-sm mb-4">
           Released: {movie.release_date || movie.first_air_date}

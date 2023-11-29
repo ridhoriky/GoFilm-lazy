@@ -11,6 +11,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Movie from './pages/Movie.jsx';
 import TvShow from './pages/TvShow.jsx';
 import Search from './pages/Search.jsx';
+import Detail from './pages/Detail.jsx';
 
 const App = () => {
   return (
@@ -22,7 +23,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/movie" element={<Movie />} />
-          <Route path="/tvshow" element={<TvShow />} />
+          <Route path="/tv" element={<TvShow />} />
           <Route path="/search" element={<Search />} />
           <Route
             path="/wishlist"
@@ -32,6 +33,7 @@ const App = () => {
               </ProtectedRoute>
             }
           />
+          <Route path="/details/:type/:id" element={<Detail />} />
         </Routes>
         <Footer />
       </AuthContextProvider>

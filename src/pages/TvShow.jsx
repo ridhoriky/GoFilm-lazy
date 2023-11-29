@@ -21,12 +21,12 @@ const TvShow = () => {
 
   return (
     <>
-      <h2 className="text-center text-white font-bold mt-4 md:text-3xl md:px-[10%] p-4">
+      <h2 className="text-center text-white font-bold mt-20 md:text-3xl md:px-[10%] p-4">
         Tv Show
       </h2>
       <div className=" md:px-[10%] w-full flex flex-wrap items-center justify-center group ">
         {tvShowList.map((item, id) => (
-          <MovieCard key={id} rowID={0} item={item} />
+          <MovieCard key={id} rowID={0} item={item} type="tv" />
         ))}
       </div>
       <div className="flex justify-center md:px-[10%]">

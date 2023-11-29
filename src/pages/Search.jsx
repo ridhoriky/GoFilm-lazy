@@ -37,7 +37,7 @@ const Search = () => {
       <div>
         <div className=" md:px-[10%] w-full flex flex-wrap items-center justify-center group ">
           {movieList.map((item, id) => (
-            <MovieCard key={id} rowID={0} item={item} />
+            <MovieCard key={id} rowID={0} item={item} type={item.media_type} />
           ))}
         </div>
       </div>

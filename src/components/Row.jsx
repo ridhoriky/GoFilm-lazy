@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import MovieCard from './MovieCard';
 
-const Row = ({ rowID, title, fetchURL }) => {
+const Row = ({ rowID, title, fetchURL, type }) => {
   const [movieList, setMovieList] = useState([]);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const Row = ({ rowID, title, fetchURL }) => {
           id={'slider' + rowID}
           className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth no-scrollbar hover:scrollbar relative my-5">
           {movieList.map((item, id) => (
-            <MovieCard key={id} rowID={rowID} item={item} />
+            <MovieCard key={id} rowID={rowID} item={item} type={type} />
           ))}
         </div>
         <button

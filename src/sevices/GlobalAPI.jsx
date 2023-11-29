@@ -11,55 +11,65 @@ const config = {
 };
 
 const getMovieList = async () => {
-  const movie = await axios.get(movieBaseUrl + '/trending/all/week', config);
-  return movie.data.results;
+  const response = await axios.get(movieBaseUrl + '/trending/all/week', config);
+  return response.data.results;
 };
 
 const getTrendingMovies = async () => {
-  const movie = await axios.get(movieBaseUrl + '/trending/all/day', config);
-  return movie.data.results;
+  const response = await axios.get(
+    movieBaseUrl + '/trending/movie/day',
+    config
+  );
+  return response.data.results;
 };
 const getTopRatedMovies = async () => {
-  const movie = await axios.get(movieBaseUrl + '/movie/top_rated', config);
-  return movie.data.results;
+  const response = await axios.get(movieBaseUrl + '/movie/top_rated', config);
+  return response.data.results;
 };
 const getUpComingMovies = async () => {
-  const movie = await axios.get(movieBaseUrl + '/movie/upcoming', config);
-  return movie.data.results;
+  const response = await axios.get(movieBaseUrl + '/movie/upcoming', config);
+  return response.data.results;
 };
 const getPopularTv = async () => {
-  const movie = await axios.get(movieBaseUrl + '/trending/tv/week', config);
-  return movie.data.results;
+  const response = await axios.get(movieBaseUrl + '/trending/tv/week', config);
+  return response.data.results;
 };
 const getPopularPerson = async () => {
-  const movie = await axios.get(movieBaseUrl + '/person/popular', config);
-  return movie.data.results;
+  const response = await axios.get(movieBaseUrl + '/person/popular', config);
+  return response.data.results;
 };
 const getTvAiringToday = async () => {
-  const movie = await axios.get(movieBaseUrl + '/tv/airing_today', config);
-  return movie.data.results;
+  const response = await axios.get(movieBaseUrl + '/tv/airing_today', config);
+  return response.data.results;
 };
 const getAllMovie = async (page) => {
-  const movie = await axios.get(
+  const response = await axios.get(
     `${movieBaseUrl}/discover/movie?page=${page}`,
     config
   );
-  return movie.data.results;
+  return response.data.results;
 };
 const getAllTvShow = async (page) => {
-  const movie = await axios.get(
+  const response = await axios.get(
     `${movieBaseUrl}/discover/tv?page=${page}`,
     config
   );
-  return movie.data.results;
+  return response.data.results;
 };
 
 const searchMovie = async (q) => {
-  const search = await axios.get(
+  const response = await axios.get(
     `${movieBaseUrl}/search/multi?query=${q}`,
     config
   );
-  return search.data.results;
+  return response.data.results;
+};
+
+const getDetailsById = async (id, type) => {
+  let url = `${movieBaseUrl}/${type}/${id}`;
+
+  const response = await axios.get(url, config);
+  return response.data;
 };
 
 export default {
@@ -73,4 +83,5 @@ export default {
   getAllMovie,
   getAllTvShow,
   searchMovie,
+  getDetailsById,
 };

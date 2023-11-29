@@ -9,7 +9,7 @@ const navLink = [
   },
   {
     name: 'TV Show',
-    path: '/tvshow',
+    path: '/tv',
   },
   {
     name: 'Search',
