@@ -6,11 +6,12 @@ import { useParams } from 'react-router';
 import { UserAuth } from '../context/AuthContext';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useLike } from '../context/LikeContext';
 const IMAGE_BASE_URL = import.meta.env.VITE_BASE_IMG_URL;
 
 const DetailPage = () => {
   const [details, setDetails] = useState(null);
-  const [like, setLike] = useState(false);
+  const { isLiked, toggleLike } = useLike();
   const [saved, setSaved] = useState(false);
 
   const { user } = UserAuth();
@@ -26,13 +27,13 @@ const DetailPage = () => {
 
   const saveShow = async () => {
     if (user?.email) {
-      setLike(!like);
+      toggleLike(id);
       setSaved(true);
       await updateDoc(movieID, {
         savedShows: arrayUnion({
-          id: item.id,
-          title: item.title || item.name,
-          img: item.poster_path || item.profile_path,
+          id: details.id,
+          title: details.title || details.name,
+          img: details.poster_path || details.profile_path,
         }),
       });
     } else {
@@ -113,7 +114,7 @@ const DetailPage = () => {
             <p className="text-white/70 my-4">{details?.overview}</p>
             <p className="text-white/70">{details?.biography}</p>
             <p onClick={saveShow} className=" z-50 cursor-pointer mt-8">
-              {like ? (
+              {isLiked(details.id) ? (
                 <span className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
                   <FaHeart size={24} title="Delete From Wishlist" /> Delete From
                   Wishlist

@@ -4,10 +4,11 @@ import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import { UserAuth } from '../context/AuthContext';
 import { FaHeart, FaRegEye, FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useLike } from '../context/LikeContext';
 const IMAGE_BASE_URL = import.meta.env.VITE_BASE_IMG_URL;
 
 const MovieHeroDetails = ({ movie, type }) => {
-  const [like, setLike] = useState(false);
+  const { isLiked, toggleLike } = useLike();
   const [saved, setSaved] = useState(false);
 
   const { user } = UserAuth();
@@ -15,13 +16,14 @@ const MovieHeroDetails = ({ movie, type }) => {
 
   const saveShow = async () => {
     if (user?.email) {
-      setLike(!like);
+      toggleLike(movie.id);
       setSaved(true);
       await updateDoc(movieID, {
         savedShows: arrayUnion({
-          id: item.id,
-          title: item.title || item.name,
-          img: item.poster_path || item.profile_path,
+          id: movie.id,
+          title: movie.title || movie.name,
+          img: movie.poster_path || movie.profile_path,
+          type: type,
         }),
       });
     } else {
@@ -59,7 +61,7 @@ const MovieHeroDetails = ({ movie, type }) => {
             </Link>
           </button>
           <p onClick={saveShow} className=" z-50 cursor-pointer ">
-            {like ? (
+            {isLiked(movie.id) ? (
               <span className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
                 <FaHeart size={24} title="Delete From Wishlist" /> Delete From
                 Wishlist

@@ -1,9 +1,11 @@
 import React from 'react';
 import { FaHeart, FaRegEye, FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useLike } from '../context/LikeContext';
 const IMAGE_BASE_URL = import.meta.env.VITE_BASE_IMG_URL;
 
-const MovieCardBig = ({ item, saveShow, like, type }) => {
+const MovieCardBig = ({ item, saveShow, type }) => {
+  const { isLiked, toggleLike } = useLike();
   const url = IMAGE_BASE_URL + (item.backdrop_path || item.profile_path);
   return (
     <div className="w-[250px] sm:w-[300px] md:w-[420px] lg:w-[500px] inline-block  relative p-4  hover:z-20">
@@ -21,7 +23,7 @@ const MovieCardBig = ({ item, saveShow, like, type }) => {
           <p
             onClick={saveShow}
             className="absolute top-6 left-6 z-50 cursor-pointer">
-            {like ? (
+            {isLiked(item.id) ? (
               <FaHeart size={24} title="Delete From Wishlist" />
             ) : (
               <FaRegHeart size={24} title="Add to Wishlist" />

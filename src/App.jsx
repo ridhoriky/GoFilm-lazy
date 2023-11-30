@@ -12,30 +12,33 @@ import Movie from './pages/Movie.jsx';
 import TvShow from './pages/TvShow.jsx';
 import Search from './pages/Search.jsx';
 import Detail from './pages/Detail.jsx';
+import { LikeProvider } from './context/LikeContext.jsx';
 
 const App = () => {
   return (
     <>
       <AuthContextProvider>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/movie" element={<Movie />} />
-          <Route path="/tv" element={<TvShow />} />
-          <Route path="/search" element={<Search />} />
-          <Route
-            path="/wishlist"
-            element={
-              <ProtectedRoute>
-                <Wishlist />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="/details/:type/:id" element={<Detail />} />
-        </Routes>
-        <Footer />
+        <LikeProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/movie" element={<Movie />} />
+            <Route path="/tv" element={<TvShow />} />
+            <Route path="/search" element={<Search />} />
+            <Route
+              path="/wishlist"
+              element={
+                <ProtectedRoute>
+                  <Wishlist />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/details/:type/:id" element={<Detail />} />
+          </Routes>
+          <Footer />
+        </LikeProvider>
       </AuthContextProvider>
     </>
   );

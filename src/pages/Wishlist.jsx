@@ -3,10 +3,13 @@ const IMAGE_BASE_URL = import.meta.env.VITE_BASE_IMG_URL;
 import { UserAuth } from '../context/AuthContext';
 import { db } from '../sevices/Firebase';
 import { updateDoc, doc, onSnapshot } from 'firebase/firestore';
-import { FaPlayCircle, FaTimes } from 'react-icons/fa';
+import { FaRegEye, FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { useLike } from '../context/LikeContext';
 
 const Wishlist = () => {
   const [movies, setMovies] = useState([]);
+  const { toggleLike, isLiked } = useLike();
   const { user } = UserAuth();
 
   useEffect(() => {
@@ -29,6 +32,8 @@ const Wishlist = () => {
       await updateDoc(movieRef, {
         savedShows: result,
       });
+
+      toggleLike(passedID, false);
     } catch (error) {
       console.log(error);
     }
@@ -58,7 +63,11 @@ const Wishlist = () => {
                   <FaTimes size={24} title="Delete From Wishlist" />
                 </p>
                 <div></div>
-                <FaPlayCircle size={40} />
+                <Link
+                  to={`/details/${item.type}/${item.id}`}
+                  className="cursor-pointer">
+                  <FaRegEye size={40} />
+                </Link>
                 <p className="whitespace-normal text-xs md:text-sm font-bold  py-5 text-center bg-black/90 w-full">
                   {item.title || item.name}
                 </p>
