@@ -71,9 +71,9 @@ const DetailPage = () => {
       </div>
       {details ? (
         <div className="xl:flex justify-between">
-          <div className="w-full xl:w-1/3">
+          <div className="w-full xl:w-1/3 md:mb-5">
             <img
-              className="w-full h-[700px] object-cover rounded-md my-5 xl:my-10"
+              className="w-[280px] md:w-full h-[400px] md:h-[620px] object-cover rounded-md my-3 xl:my-5"
               src={
                 (details?.poster_path || details?.profile_path) === null
                   ? 'https://img.freepik.com/free-vector/coming-soon-banner-with-focus-lights_1017-33739.jpg?size=626&ext=jpg&ga=GA1.1.492795408.1700300440&semt=ais'
@@ -82,7 +82,7 @@ const DetailPage = () => {
               alt={details?.title || details?.name}
             />
           </div>
-          <div className="w-full xl:w-2/3 pl-2 xl:pl-10  my-5 xl:my-10">
+          <div className="w-full xl:w-2/3 pl-2 xl:pl-10  my-4 xl:my-5">
             <h2 className="text-3xl mb-5">{details?.title || details?.name}</h2>
             {details?.birthday && (
               <div className="font-semibold text-white/80 mb-4">
