@@ -31,6 +31,17 @@ const MovieHeroDetails = ({ movie, type }) => {
     }
   };
 
+  const deleteShow = async () => {
+    if (user?.email && movieID) {
+      toggleLike(details.id);
+      await updateDoc(movieID, {
+        savedShows: (details?.savedShows || []).filter(
+          (show) => show.id !== details.id
+        ),
+      });
+    }
+  };
+
   const truncateString = (str, num) => {
     if (str.length > num) {
       return str.slice(0, num) + '...';
@@ -60,14 +71,18 @@ const MovieHeroDetails = ({ movie, type }) => {
               <FaRegEye size={28} />
             </Link>
           </button>
-          <p onClick={saveShow} className=" z-50 cursor-pointer ">
+          <p className=" z-50 cursor-pointer ">
             {isLiked(movie.id) ? (
-              <span className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
+              <span
+                onClick={deleteShow}
+                className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
                 <FaHeart size={24} title="Delete From Wishlist" /> Delete From
                 Wishlist
               </span>
             ) : (
-              <span className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
+              <span
+                onClick={saveShow}
+                className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
                 <FaRegHeart size={24} title="Add to Wishlist" /> Add to Wishlist
               </span>
             )}

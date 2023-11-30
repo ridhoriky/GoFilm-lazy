@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useLike } from '../context/LikeContext';
 const IMAGE_BASE_URL = import.meta.env.VITE_BASE_IMG_URL;
 
-const MovieCardBig = ({ item, saveShow, type }) => {
+const MovieCardBig = ({ item, saveShow, deleteShow, type }) => {
   const { isLiked, toggleLike } = useLike();
   const url = IMAGE_BASE_URL + (item.backdrop_path || item.profile_path);
   return (
@@ -20,13 +20,19 @@ const MovieCardBig = ({ item, saveShow, type }) => {
       />
       <div className="absolute top-0 left-0 w-full h-full rounded-md hover:bg-black/90 opacity-0 hover:opacity-100 text-white">
         <div className='className="whitespace-normal  flex justify-between flex-col h-full items-center "'>
-          <p
-            onClick={saveShow}
-            className="absolute top-6 left-6 z-50 cursor-pointer">
+          <p className="absolute top-6 left-6 z-50 cursor-pointer">
             {isLiked(item.id) ? (
-              <FaHeart size={24} title="Delete From Wishlist" />
+              <FaHeart
+                onClick={deleteShow}
+                size={24}
+                title="Delete From Wishlist"
+              />
             ) : (
-              <FaRegHeart size={24} title="Add to Wishlist" />
+              <FaRegHeart
+                onClick={saveShow}
+                size={24}
+                title="Add to Wishlist"
+              />
             )}
           </p>
           <div></div>

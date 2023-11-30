@@ -26,8 +26,8 @@ const DetailPage = () => {
   const movieID = user?.email ? doc(db, 'users', user.email) : null;
 
   const saveShow = async () => {
-    if (user?.email) {
-      toggleLike(id);
+    if (user?.email && movieID) {
+      toggleLike(details.id);
       setSaved(true);
       await updateDoc(movieID, {
         savedShows: arrayUnion({
@@ -38,6 +38,17 @@ const DetailPage = () => {
       });
     } else {
       alert('Please log in to save a movie');
+    }
+  };
+
+  const deleteShow = async () => {
+    if (user?.email && movieID) {
+      toggleLike(details.id);
+      await updateDoc(movieID, {
+        savedShows: (details?.savedShows || []).filter(
+          (show) => show.id !== details.id
+        ),
+      });
     }
   };
 
@@ -101,26 +112,34 @@ const DetailPage = () => {
               </div>
             )}
 
-            {details?.release_date ||
-              (details.first_air_date && (
-                <div className="font-semibold text-white/80 mb-4">
-                  Released:{' '}
-                  <span className="font-light">
-                    {details?.release_date || details.first_air_date}
-                  </span>
-                </div>
-              ))}
+            {details?.release_date && (
+              <div className="font-semibold text-white/80 mb-4">
+                Released:{' '}
+                <span className="font-light">{details?.release_date}</span>
+              </div>
+            )}
+
+            {details?.first_air_date && (
+              <div className="font-semibold text-white/80 mb-4">
+                Released:{' '}
+                <span className="font-light">{details?.first_air_date}</span>
+              </div>
+            )}
 
             <p className="text-white/70 my-4">{details?.overview}</p>
             <p className="text-white/70">{details?.biography}</p>
-            <p onClick={saveShow} className=" z-50 cursor-pointer mt-8">
+            <p className=" z-50 cursor-pointer mt-8">
               {isLiked(details.id) ? (
-                <span className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
+                <span
+                  onClick={deleteShow}
+                  className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
                   <FaHeart size={24} title="Delete From Wishlist" /> Delete From
                   Wishlist
                 </span>
               ) : (
-                <span className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
+                <span
+                  onClick={saveShow}
+                  className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
                   <FaRegHeart size={24} title="Add to Wishlist" /> Add to
                   Wishlist
                 </span>

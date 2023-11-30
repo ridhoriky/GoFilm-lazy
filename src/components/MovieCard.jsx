@@ -30,6 +30,17 @@ const MovieCard = ({ item, rowID, type }) => {
     }
   };
 
+  const deleteShow = async () => {
+    if (user?.email && movieID) {
+      toggleLike(details.id);
+      await updateDoc(movieID, {
+        savedShows: (details?.savedShows || []).filter(
+          (show) => show.id !== details.id
+        ),
+      });
+    }
+  };
+
   console.log(isLiked);
   return (
     <>
@@ -38,6 +49,7 @@ const MovieCard = ({ item, rowID, type }) => {
           item={item}
           rowID={rowID}
           saveShow={saveShow}
+          deleteShow={deleteShow}
           type={type}
         />
       ) : (
@@ -45,6 +57,7 @@ const MovieCard = ({ item, rowID, type }) => {
           item={item}
           rowID={rowID}
           saveShow={saveShow}
+          deleteShow={deleteShow}
           type={type}
         />
       )}
