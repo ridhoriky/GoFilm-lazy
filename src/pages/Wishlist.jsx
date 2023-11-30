@@ -40,15 +40,15 @@ const Wishlist = () => {
   };
 
   return (
-    <>
-      <h2 className="text-white font-bold mt-20 text-center md:text-3xl md:px-[10%] p-4">
+    <div className="  p-4 md:px-[10%] px-auto">
+      <h2 className="text-white font-bold mt-20 text-center md:text-3xl ">
         Wishlist
       </h2>
-      <div className=" md:px-[10%] w-full flex flex-wrap items-center justify-start group ">
+      <div className="  w-full flex flex-wrap  items-start justify-center  group ">
         {movies.map((item) => (
           <div
             key={item.id}
-            className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2 my-4">
+            className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2 my-4 ">
             <img
               className="w-full h-[190px] sm:h-[230px] md:h-[340px] lg:h-[400px] block"
               src={IMAGE_BASE_URL + item?.img}
@@ -76,7 +76,7 @@ const Wishlist = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
