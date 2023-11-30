@@ -3,17 +3,17 @@ import React, { createContext, useContext, useState } from 'react';
 const LikeContext = createContext();
 
 export const LikeProvider = ({ children }) => {
-  const [likeState, setLikeState] = useState(false);
+  const [like, setLike] = useState(false);
 
   const toggleLike = (movieId) => {
-    setLikeState((prevLike) => ({
+    setLike((prevLike) => ({
       ...prevLike,
       [movieId]: !prevLike[movieId],
     }));
   };
 
   const isLiked = (movieId) => {
-    return likeState[movieId] || false;
+    return like[movieId] || false;
   };
 
   return (

@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import { useLike } from '../context/LikeContext';
 const IMAGE_BASE_URL = import.meta.env.VITE_BASE_IMG_URL;
 
-const MovieCardBig = ({ item, saveShow, deleteShow, type }) => {
-  const { isLiked, toggleLike } = useLike();
+const MovieCardBig = ({ item, saveShow, isLiked, deleteShow, type }) => {
   const url = IMAGE_BASE_URL + (item.backdrop_path || item.profile_path);
   return (
     <div className="w-[250px] sm:w-[300px] md:w-[420px] lg:w-[500px] inline-block  relative p-4  hover:z-20">
