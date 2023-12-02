@@ -49,11 +49,12 @@ const MovieHeroDetails = ({ movie, type }) => {
       return str;
     }
   };
+
   return (
     <div className="w-full relative">
-      <div className=" absolute z-10 grid place-items-center left-0 right-0 md:block md:ml-[10%] mt-36">
+      <div className=" absolute z-10 grid place-items-center left-0 right-0 md:block md:ml-[10%] mt-24 md:mt-36">
         <img
-          className="w-[330px] h-[440px] object-cover rounded-md cursor-pointer"
+          className="w-[220px] h-[300px] md:w-[330px] md:h-[440px] object-cover rounded-md cursor-pointer"
           src={IMAGE_BASE_URL + movie.poster_path}
           alt={movie.title || movie.name}
         />
@@ -75,14 +76,14 @@ const MovieHeroDetails = ({ movie, type }) => {
             {isLiked(movie.id) ? (
               <span
                 onClick={deleteShow}
-                className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
+                className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2 hover:text-black hover:bg-white duration-300 ease-in-out ">
                 <FaHeart size={24} title="Delete From Wishlist" /> Delete From
                 Wishlist
               </span>
             ) : (
               <span
                 onClick={saveShow}
-                className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
+                className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2 hover:text-black hover:bg-white duration-300 ease-in-out ">
                 <FaRegHeart size={24} title="Add to Wishlist" /> Add to Wishlist
               </span>
             )}
@@ -91,8 +92,11 @@ const MovieHeroDetails = ({ movie, type }) => {
         <p className="text-gray-400 text-sm mb-4">
           Released: {movie.release_date || movie.first_air_date}
         </p>
-        <p className="text-center md:text-start w-[70%] md:max-w-[70%] lg:max-w-[50%] xl:max-w-[30%] text-gray-200">
+        <p className="hidden md:block text-center md:text-start w-[70%] md:max-w-[70%] lg:max-w-[50%] xl:max-w-[30%] text-gray-200">
           {truncateString(movie.overview, 150)}
+        </p>
+        <p className="md:hidden text-center md:text-start w-[70%] md:max-w-[70%] lg:max-w-[50%] xl:max-w-[30%] text-gray-200">
+          {truncateString(movie.overview, 80)}
         </p>
       </div>
       <img

@@ -22,7 +22,7 @@ const Row = ({ rowID, title, fetchURL, type }) => {
 
   return (
     <div className="md:mx-[10%]">
-      <h1 className="text-2xl mt-10 w-full ml-4">{title}</h1>
+      <h1 className="text-2xl mt-4 md:mt-10 w-full ml-4">{title}</h1>
       <div className="relative flex items-center group">
         <button
           onClick={slideLeft}
@@ -31,7 +31,7 @@ const Row = ({ rowID, title, fetchURL, type }) => {
         </button>
         <div
           id={'slider' + rowID}
-          className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth no-scrollbar hover:scrollbar relative my-5">
+          className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth no-scrollbar hover:scrollbar relative my-2 md:my-5">
           {movieList.map((item, id) => (
             <MovieCard key={id} rowID={rowID} item={item} type={type} />
           ))}

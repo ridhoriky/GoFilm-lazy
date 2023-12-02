@@ -44,7 +44,7 @@ const Navbar = () => {
               <li key={index}>
                 <Link
                   to={path}
-                  className="  hover:text-[#15191e] ease-in-out duration-500">
+                  className="hover:bg-white  hover:text-[#15191e] ease-in-out duration-500">
                   {name}
                 </Link>
               </li>

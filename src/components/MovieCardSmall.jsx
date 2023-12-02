@@ -6,7 +6,7 @@ const IMAGE_BASE_URL = import.meta.env.VITE_BASE_IMG_URL;
 const MovieCardSmall = ({ item, saveShow, isLiked, deleteShow, type }) => {
   const url = IMAGE_BASE_URL + (item.poster_path || item.profile_path);
   return (
-    <div className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] my-5 inline-block  relative p-2  hover:z-20 ">
+    <div className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] my-2 md:my-5 inline-block  relative px-2  hover:z-20 ">
       <img
         className="w-full h-[190px] sm:h-[230px] md:h-[340px] lg:h-[400px] object-cover block rounded-md"
         src={

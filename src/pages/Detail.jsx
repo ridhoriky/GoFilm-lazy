@@ -75,7 +75,7 @@ const DetailPage = () => {
             <img
               className="w-[280px] md:w-full h-[400px] md:h-[620px] object-cover rounded-md my-3 xl:my-5"
               src={
-                (details?.poster_path || details?.profile_path) === null
+                details?.poster_path === null || details?.profile_path === null
                   ? 'https://img.freepik.com/free-vector/coming-soon-banner-with-focus-lights_1017-33739.jpg?size=626&ext=jpg&ga=GA1.1.492795408.1700300440&semt=ais'
                   : url
               }
@@ -132,14 +132,14 @@ const DetailPage = () => {
               {isLiked(details.id) ? (
                 <span
                   onClick={deleteShow}
-                  className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
+                  className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2 hover:text-black hover:bg-white duration-300 ease-in-out">
                   <FaHeart size={24} title="Delete From Wishlist" /> Delete From
                   Wishlist
                 </span>
               ) : (
                 <span
                   onClick={saveShow}
-                  className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2">
+                  className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2 hover:text-black hover:bg-white duration-300 ease-in-out">
                   <FaRegHeart size={24} title="Add to Wishlist" /> Add to
                   Wishlist
                 </span>
