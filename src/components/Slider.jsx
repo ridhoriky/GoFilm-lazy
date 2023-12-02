@@ -52,7 +52,7 @@ const MovieHeroDetails = ({ movie, type }) => {
 
   return (
     <div className="w-full relative">
-      <div className=" absolute z-10 grid place-items-center left-0 right-0 md:block md:ml-[10%] mt-24 md:mt-36">
+      <div className=" absolute z-10 grid place-items-center left-0 right-0 md:block md:ml-[10%] mt-36">
         <img
           className="w-[220px] h-[300px] md:w-[330px] md:h-[440px] object-cover rounded-md cursor-pointer"
           src={IMAGE_BASE_URL + movie.poster_path}

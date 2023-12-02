@@ -22,7 +22,7 @@ const Row = ({ rowID, title, fetchURL, type }) => {
 
   return (
     <div className="md:mx-[10%]">
-      <h1 className="text-2xl mt-4 md:mt-10 w-full ml-4">{title}</h1>
+      <h1 className="text-2xl mt-4 md:mt-10 w-full  pl-4">{title}</h1>
       <div className="relative flex items-center group">
         <button
           onClick={slideLeft}
