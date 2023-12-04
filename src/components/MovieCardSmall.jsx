@@ -1,14 +1,14 @@
 import React from 'react';
 import { FaHeart, FaRegEye, FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-const IMAGE_BASE_URL = import.meta.env.VITE_BASE_IMG_URL;
+const IMAGE_BASE_URL_SM = import.meta.env.VITE_BASE_IMG_URL_SM;
 
 const MovieCardSmall = ({ item, saveShow, isLiked, deleteShow, type }) => {
-  const url = IMAGE_BASE_URL + (item.poster_path || item.profile_path);
+  const url = IMAGE_BASE_URL_SM + (item.poster_path || item.profile_path);
   return (
-    <div className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] my-2 md:my-5 inline-block  relative px-2  hover:z-20 ">
+    <div className=" my-2 md:my-5 inline-block  relative px-2  hover:z-20 ">
       <img
-        className="w-full h-[190px] sm:h-[230px] md:h-[340px] lg:h-[400px] object-cover block rounded-md"
+        className="w-[220px] h-[330px] object-cover block rounded-md"
         src={
           item?.poster_path === null || item.profile_path === null
             ? `https://img.freepik.com/free-vector/coming-soon-banner-with-focus-lights_1017-33739.jpg?size=626&ext=jpg&ga=GA1.1.492795408.1700300440&semt=ais`

@@ -5,7 +5,8 @@ import { UserAuth } from '../context/AuthContext';
 import { FaHeart, FaRegEye, FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useLike } from '../context/LikeContext';
-const IMAGE_BASE_URL = import.meta.env.VITE_BASE_IMG_URL;
+const IMAGE_BASE_URL_MD = import.meta.env.VITE_BASE_IMG_URL_MD;
+const IMAGE_BASE_URL_XL = import.meta.env.VITE_BASE_IMG_URL_XL;
 
 const MovieHeroDetails = ({ movie, type }) => {
   const { isLiked, toggleLike } = useLike();
@@ -54,8 +55,8 @@ const MovieHeroDetails = ({ movie, type }) => {
     <div className="w-full relative">
       <div className=" absolute z-10 grid place-items-center left-0 right-0 md:block md:ml-[10%] mt-36">
         <img
-          className="w-[220px] h-[300px] md:w-[330px] md:h-[440px] object-cover rounded-md cursor-pointer"
-          src={IMAGE_BASE_URL + movie.poster_path}
+          className="w-342 h-auto object-cover rounded-md cursor-pointer"
+          src={IMAGE_BASE_URL_MD + movie.poster_path}
           alt={movie.title || movie.name}
         />
         <h1 className="text-2xl md:text-4xl my-4">
@@ -101,7 +102,7 @@ const MovieHeroDetails = ({ movie, type }) => {
       </div>
       <img
         className="w-full h-[100vh] object-cover object-top opacity-20"
-        src={IMAGE_BASE_URL + movie.backdrop_path}
+        src={IMAGE_BASE_URL_XL + movie.backdrop_path}
         alt={movie.title || movie.name}
       />
     </div>

@@ -31,7 +31,7 @@ const Row = ({ rowID, title, fetchURL, type }) => {
         </button>
         <div
           id={'slider' + rowID}
-          className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth no-scrollbar hover:scrollbar relative my-2 md:my-5">
+          className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth no-scrollbar hover:!scrollbar relative my-2 md:my-5">
           {movieList.map((item, id) => (
             <MovieCard key={id} rowID={rowID} item={item} type={type} />
           ))}
