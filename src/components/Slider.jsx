@@ -96,9 +96,6 @@ const MovieHeroDetails = ({ movie, type }) => {
         <p className="hidden md:block text-center md:text-start w-[70%] md:max-w-[70%] lg:max-w-[50%] xl:max-w-[30%] text-gray-200">
           {truncateString(movie.overview, 150)}
         </p>
-        <p className="md:hidden text-center md:text-start w-[70%] md:max-w-[70%] lg:max-w-[50%] xl:max-w-[30%] text-gray-200">
-          {truncateString(movie.overview, 80)}
-        </p>
       </div>
       <img
         className="w-full h-[100vh] object-cover object-top opacity-20"
