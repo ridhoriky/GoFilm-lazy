@@ -55,7 +55,7 @@ const Login = () => {
         src="https://cdn.pixabay.com/photo/2017/10/26/17/46/film-2891853_1280.jpg"
         alt="/"
       />
-      <div className="fixed w-full px-4 py-40 z-50">
+      <div className="fixed w-full px-4 pt-40 z-50">
         <div className="max-w-[450px] h-[500px] md:h-[600px] mx-auto rounded-md bg-white/70 text-gray-900">
           <div className="max-w-[320px] mx-auto py-10 md:py-20">
             <h1 className="text-3xl font-bold">Sign In</h1>
