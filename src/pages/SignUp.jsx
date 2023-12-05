@@ -57,7 +57,7 @@ const SignUp = () => {
       <div className=" fixed top-0 left-0 w-full h-screen"></div>
       <div className="fixed w-full px-4 py-40 z-50">
         <div className="max-w-[450px] h-[600px] mx-auto rounded-md bg-white/95 sm:bg-white/80 text-gray-900">
-          <div className="max-w-[320px] mx-auto py-20">
+          <div className="max-w-[320px] mx-auto py-10 md:y-20">
             <h1 className="text-3xl font-bold">Sign Up</h1>
             <form
               onSubmit={handleSubmit}
@@ -92,7 +92,7 @@ const SignUp = () => {
                 <p>Need Help?</p>
               </div>
               <p className="py-12">
-                <span className="text-gray-400">New to GoFlix</span>{' '}
+                <span className="text-gray-400">Already subscribed?</span>{' '}
                 <Link to="/login" className="hover:text-white">
                   Sign In
                 </Link>
