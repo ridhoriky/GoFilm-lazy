@@ -55,7 +55,7 @@ const MovieHeroDetails = ({ movie, type }) => {
     <div className="w-full relative">
       <div className=" absolute z-10 grid place-items-center left-0 right-0 md:block md:ml-[10%] mt-36">
         <img
-          className="w-342 h-auto object-cover rounded-md cursor-pointer"
+          className="w-[342px] h-auto object-cover rounded-md cursor-pointer"
           src={IMAGE_BASE_URL_MD + movie.poster_path}
           alt={movie.title || movie.name}
         />
