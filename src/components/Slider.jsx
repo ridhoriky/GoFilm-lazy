@@ -58,6 +58,8 @@ const MovieHeroDetails = ({ movie, type }) => {
           className="w-[200px] md:w-[280px] h-auto object-cover rounded-md cursor-pointer"
           src={IMAGE_BASE_URL_MD + movie.poster_path}
           alt={movie.title || movie.name}
+          loading="eager"
+          fetchpriority="high"
         />
         <h1 className="text-xl md:text-4xl my-4 text-center md:text-left">
           {movie.title || movie.name}
@@ -104,6 +106,8 @@ const MovieHeroDetails = ({ movie, type }) => {
         className="w-full h-[100vh] object-cover object-top opacity-20"
         src={IMAGE_BASE_URL_XL + movie.backdrop_path}
         alt={movie.title || movie.name}
+        loading="eager"
+        fetchpriority="high"
       />
     </div>
   );
