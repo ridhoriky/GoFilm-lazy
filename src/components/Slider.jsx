@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { db } from '../sevices/Firebase';
-import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
-import { UserAuth } from '../context/AuthContext';
-import { FaHeart, FaRegEye, FaRegHeart } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { useLike } from '../context/LikeContext';
+import React, { useState } from "react";
+import { db } from "../sevices/Firebase";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { UserAuth } from "../context/AuthContext";
+import { FaHeart, FaRegEye, FaRegHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { useLike } from "../context/LikeContext";
 const IMAGE_BASE_URL_MD = import.meta.env.VITE_BASE_IMG_URL_MD;
 const IMAGE_BASE_URL_XL = import.meta.env.VITE_BASE_IMG_URL_XL;
 
@@ -13,7 +13,7 @@ const MovieHeroDetails = ({ movie, type }) => {
   const [saved, setSaved] = useState(false);
 
   const { user } = UserAuth();
-  const movieID = user?.email ? doc(db, 'users', user.email) : null;
+  const movieID = user?.email ? doc(db, "users", user.email) : null;
 
   const saveShow = async () => {
     if (user?.email) {
@@ -28,7 +28,7 @@ const MovieHeroDetails = ({ movie, type }) => {
         }),
       });
     } else {
-      alert('Please log in to save a movie');
+      alert("Please log in to save a movie");
     }
   };
 
@@ -45,7 +45,7 @@ const MovieHeroDetails = ({ movie, type }) => {
 
   const truncateString = (str, num) => {
     if (str.length > num) {
-      return str.slice(0, num) + '...';
+      return str.slice(0, num) + "...";
     } else {
       return str;
     }
@@ -53,13 +53,13 @@ const MovieHeroDetails = ({ movie, type }) => {
 
   return (
     <div className="w-full relative">
-      <div className=" absolute z-10 grid place-items-center left-0 right-0 md:block md:ml-[10%] mt-36">
+      <div className=" absolute z-10 grid md:place-items-start place-items-center left-0 right-0 md:block md:ml-[10%] mt-36">
         <img
-          className="w-[342px] h-auto object-cover rounded-md cursor-pointer"
+          className="w-[200px] md:w-[280px] h-auto object-cover rounded-md cursor-pointer"
           src={IMAGE_BASE_URL_MD + movie.poster_path}
           alt={movie.title || movie.name}
         />
-        <h1 className="text-2xl md:text-4xl my-4">
+        <h1 className="text-xl md:text-4xl my-4 text-center md:text-left">
           {movie.title || movie.name}
         </h1>
         <div className="flex items-center justify-start mb-4">
@@ -69,7 +69,8 @@ const MovieHeroDetails = ({ movie, type }) => {
             </span>
             <Link
               to={`/details/${type}/${movie.id}`}
-              className="absolute mx-auto top-[6px]  right-0 -left-10 group-hover:left-5 ease-in-out duration-500">
+              className="absolute mx-auto top-[6px]  right-0 -left-10 group-hover:left-5 ease-in-out duration-500"
+            >
               <FaRegEye size={28} />
             </Link>
           </button>
@@ -77,14 +78,16 @@ const MovieHeroDetails = ({ movie, type }) => {
             {isLiked(movie.id) ? (
               <span
                 onClick={deleteShow}
-                className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2 hover:text-black hover:bg-white duration-300 ease-in-out ">
+                className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2 hover:text-black hover:bg-white duration-300 ease-in-out "
+              >
                 <FaHeart size={24} title="Delete From Wishlist" /> Delete From
                 Wishlist
               </span>
             ) : (
               <span
                 onClick={saveShow}
-                className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2 hover:text-black hover:bg-white duration-300 ease-in-out ">
+                className="flex items-center justify-center w-fit rounded-md gap-2 border-2 p-2 hover:text-black hover:bg-white duration-300 ease-in-out "
+              >
                 <FaRegHeart size={24} title="Add to Wishlist" /> Add to Wishlist
               </span>
             )}
