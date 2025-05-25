@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import HomePage from "./pages/HomePage.jsx";
@@ -16,10 +16,10 @@ const Detail = React.lazy(() => import("./pages/Detail.jsx"));
 
 const App = () => {
   return (
-    <>
-      <AuthContextProvider>
-        <LikeProvider>
-          <Navbar />
+    <AuthContextProvider>
+      <LikeProvider>
+        <Navbar />
+        <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<Login />} />
@@ -32,15 +32,15 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
-            <Route path="/movie/:id" element={<Movie />} />
-            <Route path="/tvshow/:id" element={<TvShow />} />
+            <Route path="/movie" element={<Movie />} />
+            <Route path="/tvshow" element={<TvShow />} />
             <Route path="/search" element={<Search />} />
             <Route path="/detail/:id" element={<Detail />} />
           </Routes>
-          <Footer />
-        </LikeProvider>
-      </AuthContextProvider>
-    </>
+        </Suspense>
+        <Footer />
+      </LikeProvider>
+    </AuthContextProvider>
   );
 };
 
