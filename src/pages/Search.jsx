@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
-import GlobalAPI from '../sevices/GlobalAPI';
-import MovieCard from '../components/MovieCard';
+import React, { useState } from "react";
+import { FaSearch } from "react-icons/fa";
+import GlobalAPI from "../sevices/GlobalAPI";
+import MovieCard from "../components/MovieCard";
 
 const Search = () => {
   const [movieList, setMovieList] = useState([]);
@@ -25,7 +25,7 @@ const Search = () => {
                 onChange={({ target }) => search(target.value)}
                 type="text"
                 placeholder="Search"
-                className="input input-bordered w-full text-white/80"
+                className="input input-bordered w-full text-black"
               />
             </div>
             <div className="mt-16 p-3 outline h-fit text-white outline-2 rounded-md outline-gray-900 font-semibold cursor-pointer bg-gray-900 hover:text-gray-900  hover:bg-white hover:outline-white  ease-in-out duration-500">

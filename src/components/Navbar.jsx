@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { UserAuth } from '../context/AuthContext';
-import NavLink from '../constant/NavLink';
-import { IoPersonCircle } from 'react-icons/io5';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
+import NavLink from "../constant/NavLink";
+import { IoPersonCircle } from "react-icons/io5";
 
 const Navbar = () => {
   const { user, logOut } = UserAuth();
@@ -11,7 +11,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       await logOut();
-      navigate('/');
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -26,7 +26,8 @@ const Navbar = () => {
               className="h-5 w-5 "
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor">
+              stroke="currentColor"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -37,12 +38,14 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#15191e] rounded-box w-52 ">
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#15191e] rounded-box w-52 "
+          >
             {NavLink.navLink.map(({ index, name, path }) => (
-              <li key={index}>
+              <li key={index} className="active:text-white active:bg-[#15191e]">
                 <Link
                   to={path}
-                  className="hover:bg-white  hover:text- ease-in-out duration-500">
+                  className="hover:bg-white ease-in-out duration-500  "
+                >
                   {name}
                 </Link>
               </li>
@@ -51,7 +54,8 @@ const Navbar = () => {
         </div>
         <Link
           to="/"
-          className="btn btn-ghost normal-case font-bold  text-2xl   hover:bg-white hover:text-[#15191e] ease-in-out duration-500">
+          className="btn btn-ghost normal-case font-bold  text-2xl   hover:bg-white hover:text-[#15191e] ease-in-out duration-500"
+        >
           Go<span className="text-red-500 "> Film</span>
         </Link>
       </div>
@@ -61,7 +65,8 @@ const Navbar = () => {
             <li key={index}>
               <Link
                 to={path}
-                className="  hover:text-[#15191e]  hover:bg-white ease-in-out duration-500">
+                className="  hover:text-[#15191e]  hover:bg-white ease-in-out duration-500"
+              >
                 {name}
               </Link>
             </li>
@@ -78,7 +83,8 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#15191e] rounded-box w-52">
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#15191e] rounded-box w-52"
+            >
               <li>
                 <a className="justify-between">Profile</a>
               </li>
@@ -95,12 +101,14 @@ const Navbar = () => {
         <div className="navbar-end flex gap-4 ">
           <Link
             to="/signup"
-            className="menu menu-horizontal px-3 outline outline-2 rounded-md outline-[#15191e] font-semibold cursor-pointer hover:text-[#15191e]  hover:bg-white hover:outline-white ease-in-out duration-500 ">
+            className="menu menu-horizontal px-3 outline outline-2 rounded-md outline-[#15191e] font-semibold cursor-pointer hover:text-[#15191e]  hover:bg-white hover:outline-white ease-in-out duration-500 "
+          >
             Sign Up
           </Link>
           <Link
             to="/login"
-            className="menu menu-horizontal px-3 outline outline-2 rounded-md  font-semibold cursor-pointer  hover:text-[#15191e]  hover:bg-white hover:outline-white  ease-in-out duration-500">
+            className="menu menu-horizontal px-3 outline outline-2 rounded-md  font-semibold cursor-pointer  hover:text-[#15191e]  hover:bg-white hover:outline-white  ease-in-out duration-500"
+          >
             Sign In
           </Link>
         </div>

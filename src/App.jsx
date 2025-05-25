@@ -1,18 +1,18 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar.jsx';
-import HomePage from './pages/HomePage.jsx';
-import { AuthContextProvider } from './context/AuthContext.jsx';
-import { Footer } from './components/Footer.jsx';
-import SignUp from './pages/SignUp.jsx';
-import Login from './pages/Login.jsx';
-import Wishlist from './pages/Wishlist.jsx';
-import ProtectedRoute from './components/ProtectedRoute';
-import Movie from './pages/Movie.jsx';
-import TvShow from './pages/TvShow.jsx';
-import Search from './pages/Search.jsx';
-import Detail from './pages/Detail.jsx';
-import { LikeProvider } from './context/LikeContext.jsx';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import { AuthContextProvider } from "./context/AuthContext.jsx";
+import { Footer } from "./components/Footer.jsx";
+import { LikeProvider } from "./context/LikeContext.jsx";
+import ProtectedRoute from "./components/ProtectedRoute";
+const SignUp = React.lazy(() => import("./pages/SignUp.jsx"));
+const Login = React.lazy(() => import("./pages/Login.jsx"));
+const Wishlist = React.lazy(() => import("./pages/Wishlist.jsx"));
+const Movie = React.lazy(() => import("./pages/Movie.jsx"));
+const TvShow = React.lazy(() => import("./pages/TvShow.jsx"));
+const Search = React.lazy(() => import("./pages/Search.jsx"));
+const Detail = React.lazy(() => import("./pages/Detail.jsx"));
 
 const App = () => {
   return (
@@ -22,11 +22,8 @@ const App = () => {
           <Navbar />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/movie" element={<Movie />} />
-            <Route path="/tv" element={<TvShow />} />
-            <Route path="/search" element={<Search />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route
               path="/wishlist"
               element={
@@ -35,7 +32,10 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
-            <Route path="/details/:type/:id" element={<Detail />} />
+            <Route path="/movie/:id" element={<Movie />} />
+            <Route path="/tvshow/:id" element={<TvShow />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/detail/:id" element={<Detail />} />
           </Routes>
           <Footer />
         </LikeProvider>
