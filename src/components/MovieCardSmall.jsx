@@ -1,6 +1,6 @@
-import React from 'react';
-import { FaHeart, FaRegEye, FaRegHeart } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { FaHeart, FaRegEye, FaRegHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const IMAGE_BASE_URL_SM = import.meta.env.VITE_BASE_IMG_URL_SM;
 
 const MovieCardSmall = ({ item, saveShow, isLiked, deleteShow, type }) => {
@@ -16,7 +16,7 @@ const MovieCardSmall = ({ item, saveShow, isLiked, deleteShow, type }) => {
         }
         alt={item.title || item.name}
       />
-      <div className="absolute top-0 left-0 w-full h-full rounded-md hover:bg-black/90 opacity-0 hover:opacity-100 text-white">
+      <div className="absolute top-0 left-0 w-full h-full rounded-md hover:bg-black/60 opacity-0 hover:opacity-100 text-white">
         <div className='className="whitespace-normal  flex justify-between flex-col h-full items-center '>
           <p className="absolute top-4 left-4 z-50 cursor-pointer">
             {isLiked(item.id) ? (
